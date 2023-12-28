@@ -6,17 +6,12 @@ import base64
 from openai import OpenAI
 
 client = OpenAI()
+client.api_key=st.secrets["OPENAI_API_KEY"]
+
 
 def generate_image(prompt, model, size, quality, style, num_images=1):
     try:
-        # response = client.images.generate(
-        #     model="dall-e-3",
-        #     prompt=prompt,
-        #     size="1792x1024",
-        #     quality="hd",
-        #     n=num_images,
-        #     style="natural"
-        # )
+ 
         response = client.images.generate(
             model=model,
             prompt=prompt,
